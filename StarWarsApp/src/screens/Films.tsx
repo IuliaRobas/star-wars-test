@@ -62,7 +62,11 @@ export const Films: React.FC = () => {
             />
           </View>
           <View style={styles.fl5}>
-            <FilmsList data={filteredFilms} />
+            {_.isEmpty(filteredFilms) ? (
+              <Text style={styles.text}>There are no films to display.</Text>
+            ) : (
+              <FilmsList data={filteredFilms} />
+            )}
           </View>
         </View>
       )}
@@ -89,5 +93,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     justifyContent: 'center',
   },
-  fl5: {flex: 5},
+  fl5: {flex: 5, justifyContent: 'center'},
+  text: {fontSize: 15, textAlign: 'center', color: 'black'},
 });
